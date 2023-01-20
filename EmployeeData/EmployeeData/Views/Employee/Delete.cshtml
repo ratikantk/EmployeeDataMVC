@@ -1,0 +1,50 @@
+﻿@model EmployeeData.Models.Employee
+
+@{
+    ViewData["Title"] = "Delete Employee";
+    var errorMessage = TempData["errorMessage"]?.ToString();
+}
+<div class="nav-item">
+    <a class="btn btn-lg float-end btn-danger" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
+</div>
+<h3>@ViewData["Title"]</h3>
+<hr />
+
+<form action="Delete" method="post">
+    <div class="mb-3">
+        <lable class="form-label">Id</lable>
+        <input type="text" class="form-control" asp-for="Id" readonly />
+
+    </div>
+    <div class="mb-3">
+        <lable class="form-label">First Name</lable>
+        <input type="text" class="form-control" asp-for="FirstName" readonly />
+        
+    </div>
+    <div class="mb-3">
+        <lable class="form-label">Last Name</lable>
+        <input type="text" class="form-control" asp-for="LastName" readonly />
+        
+    </div>
+    <div class="mb-3">
+        <lable class="form-label">Date of Birth</lable>
+        <input type="date" class="form-control" asp-for="DateOfBirth"readonly />
+        
+    </div>
+    <div class="mb-3">
+        <lable class="form-label">E-Mail</lable>
+        <input type="text" class="form-control" asp-for="Email" readonly />
+       
+    </div>
+    <div class="mb-3">
+        <lable class="form-label">Salary</lable>
+        <div class="input-group">
+            <span class="input-group-text">Rs</span>
+            <input type="text" class="form-control" asp-for="Salary" readonly />
+           
+        </div>
+    </div>
+    <div class="d-grid">
+        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure to delete employee:@Model.FirstName @Model.LastName')">Delete</button>
+    </div>
+</form>
